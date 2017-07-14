@@ -1,0 +1,83 @@
+rm -rf main Constraints.o histograms.o Filelist.o analysis.o main.o
+g++ -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root -c src/Constraints.cxx -o Constraints.o
+g++ -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root -c src/histograms.cxx -o histograms.o
+src/histograms.cxx: In function ‘void writeHistToFile(const char*, int, int)’:
+src/histograms.cxx:112:154: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    (TH1F*)(fIn->Get(Form("Ge Cut Detector %i, Peak %f/Clover_%i",(int)dGeCuts[i][0],dGeCuts[i][1],j)))->Write(Form("Clover_%i",j),TObject::kOverwrite,1E8);
+                                                                                                                                                          ^
+src/histograms.cxx:116:154: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    (TH1F*)(fIn->Get(Form("Ge Cut Detector %i, Peak %f/SiLi_%i",(int)dGeCuts[i][0],dGeCuts[i][1],j+1)))->Write(Form("SiLi_%i",j+1),TObject::kOverwrite,1E8);
+                                                                                                                                                          ^
+src/histograms.cxx:127:162: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    (TH1F*)(fIn->Get(Form("SiLi Cut Detector %i, Peak %f/Clover_%i",(int)dSiLiCuts[i][0]+1,dSiLiCuts[i][1],j)))->Write(Form("Clover_%i",j),TObject::kOverwrite,1E8);
+                                                                                                                                                                  ^
+src/histograms.cxx:131:162: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    (TH1F*)(fIn->Get(Form("SiLi Cut Detector %i, Peak %f/SiLi_%i",(int)dSiLiCuts[i][0]+1,dSiLiCuts[i][1],j+1)))->Write(Form("SiLi_%i",j+1),TObject::kOverwrite,1E8);
+                                                                                                                                                                  ^
+g++ -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root -c src/Filelist.cxx -o Filelist.o
+g++ -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root -c src/analysis.cxx -o analysis.o
+g++ -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root -c src/main.cxx -o main.o
+g++ -L/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/lib/root -lCore -lCint -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -pthread -lm -ldl -rdynamic  -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root Constraints.o histograms.o Filelist.o analysis.o main.o -o main
+/scratch365/sstrauss/Cut_318_Timing.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0018.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0019.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0020.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0021.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0022.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0023.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0024.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0025.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0026.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0027.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0028.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0029.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0030.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0031.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0032.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0033.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0034.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0035.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0036.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0037.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0038.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0039.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0040.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0041.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0042.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0043.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0044.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0045.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0046.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0047.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0048.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0049.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0050.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0051.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0052.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0053.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0054.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0055.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0056.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0057.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0058.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0059.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0060.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0061.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0062.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0063.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0064.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0065.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0066.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0067.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0068.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0069.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0070.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0071.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0072.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0073.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0074.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0075.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0076.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0077.root
+Finishing it up
+File closed

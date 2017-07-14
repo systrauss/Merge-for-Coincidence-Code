@@ -1,0 +1,80 @@
+rm -rf main Constraints.o histograms.o Filelist.o analysis.o main.o
+g++ -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root -c src/Constraints.cxx -o Constraints.o
+g++ -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root -c src/histograms.cxx -o histograms.o
+g++ -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root -c src/Filelist.cxx -o Filelist.o
+g++ -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root -c src/analysis.cxx -o analysis.o
+g++ -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root -c src/main.cxx -o main.o
+g++ -L/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/lib/root -lCore -lCint -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -pthread -lm -ldl -rdynamic  -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root Constraints.o histograms.o Filelist.o analysis.o main.o -o main
+/scratch365/sstrauss/Cut_GS_Timing.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0036.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0037.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0038.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0039.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0040.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0041.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0042.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0043.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0044.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0045.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0046.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0047.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0048.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0049.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0050.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0051.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0052.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0053.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0054.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0055.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0056.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0057.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0058.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0059.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0060.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0061.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0062.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0063.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0064.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0065.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0066.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0067.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0068.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0069.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0070.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0071.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0072.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0073.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0074.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0075.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0076.root
+/scratch365/sstrauss/temp/Cut_GS_Timing_run_0077.root
+
+ *** Break *** segmentation violation
+
+
+
+===========================================================
+There was a crash.
+This is the entire stack trace of all threads:
+===========================================================
+#0  0x00002b4702c3127c in waitpid () from /lib64/libc.so.6
+#1  0x00002b4702bb4c72 in do_system () from /lib64/libc.so.6
+#2  0x00002b46fdd5f398 in TUnixSystem::StackTrace() () from /afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/lib/root/libCore.so
+#3  0x00002b46fdd5e823 in TUnixSystem::DispatchSignals(ESignals) () from /afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/lib/root/libCore.so
+#4  <signal handler called>
+#5  writeHistToFile (fileName=<optimized out>, nRunStart=<optimized out>, nRunStop=77) at src/histograms.cxx:206
+#6  0x000000000040246b in main (argc=<optimized out>, argv=<optimized out>) at src/main.cxx:60
+===========================================================
+
+
+The lines below might hint at the cause of the crash.
+If they do not help you then please submit a bug report at
+http://root.cern.ch/bugs. Please post the ENTIRE stack trace
+from above as an attachment in addition to anything else
+that might help us fixing this issue.
+===========================================================
+#5  writeHistToFile (fileName=<optimized out>, nRunStart=<optimized out>, nRunStop=77) at src/histograms.cxx:206
+#6  0x000000000040246b in main (argc=<optimized out>, argv=<optimized out>) at src/main.cxx:60
+===========================================================
+
+

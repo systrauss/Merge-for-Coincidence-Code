@@ -1,0 +1,80 @@
+/*
+Please check the README for more information about this code and it's purpose.
+*/
+
+//C++ libraries
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cmath>
+#include <cstdio>
+#include <cstdlib>
+#include <vector>
+
+//ROOT libraries
+#include <TROOT.h>
+#include "TH2.h"
+#include "TStyle.h"
+#include "TCanvas.h"
+#include "TString.h"
+#include "TFile.h"
+#include "TChain.h"
+#include "TH1F.h"
+#include "TTree.h"
+#include "TRandom3.h"
+#include "TBranch.h"
+#include "TLeaf.h"
+#include "TObject.h"
+#include "TObjArray.h"
+
+//Object files
+#include "Coefficients.h"
+#include "Constraints.h"
+#include "histograms.h"
+#include "Filelist.h"
+
+using namespace std;
+
+//File path info
+extern std::string sFilepath;
+extern std::string sTree;
+extern std::string sRun;
+extern std::string sFType;
+
+//from histograms.cxx
+extern std::vector<std::vector<TH1F*> > ge_en_ge_cut;
+extern std::vector<std::vector<TH1F*> > sili_en_ge_cut;
+extern std::vector<std::vector<TH1F*> > ge_en_sili_cut;
+extern std::vector<std::vector<TH1F*> > sili_en_sili_cut;
+
+//From coefficients.cxx
+extern int nGeOrder; //Order of calibration i.e. 1 = linear.
+extern int nGeDets; //Total number of signals from Germanium detectors
+extern int nGeSegments; //number of segments in a single Germanium crystal, for adding purposes
+
+extern int nSiLiOrder; //Order of calibration i.e. 1 = linear.
+extern int nSiLiDets; //Total number of signals from SiLi
+extern int nSiLiPlace; //Start of SiLis in generalized array detectors
+
+std::vector<std::vector<double> > dGeBounds; //bounds for cuts
+std::vector<std::vector<double> > dSiLiBounds; //bounds for cuts
+int nGeConstraints;
+int nSiLiConstraints;
+
+int main(int argc, char* argv[]) //Order of arguments: first run, last run, output file name, cut file name
+{
+	char buffer[50];
+	int nRunStart = atoi(argv[1]);
+	int nRunEnd = atoi(argv[2]);
+	char* sOut = argv[3];
+	char* sCut = argv[4];
+	readPaths();
+	defineGeCoeff(); //From Coefficients.cxx
+	defineSiLiCoeff(); //From Coefficients.cxx
+	sprintf(buffer,"GeCut_%s.dat",sCut); //File name to input
+	nGeConstraints = defineConstraints(buffer,dGeBounds); //From constraints.cxx
+	sprintf(buffer,"SiLiCut_%s.dat",sCut); //File name to input
+	nSiLiConstraints = defineConstraints(buffer,dSiLiBounds);
+	writeHistToFile(Form("/scratch365/sstrauss/%s.root",sOut),sOut,nRunStart,nRunEnd);
+	return 0;
+}

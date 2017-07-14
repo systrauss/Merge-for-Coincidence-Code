@@ -1,0 +1,73 @@
+rm -rf main Constraints.o histograms.o Filelist.o analysis.o main.o
+g++ -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root -c src/Constraints.cxx -o Constraints.o
+g++ -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root -c src/histograms.cxx -o histograms.o
+src/histograms.cxx: In function ‘void writeHistToFile(const char*, int, int)’:
+src/histograms.cxx:112:154: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    (TH1F*)(fIn->Get(Form("Ge Cut Detector %i, Peak %f/Clover_%i",(int)dGeCuts[i][0],dGeCuts[i][1],j)))->Write(Form("Clover_%i",j),TObject::kOverwrite,1E8);
+                                                                                                                                                          ^
+src/histograms.cxx:116:154: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    (TH1F*)(fIn->Get(Form("Ge Cut Detector %i, Peak %f/SiLi_%i",(int)dGeCuts[i][0],dGeCuts[i][1],j+1)))->Write(Form("SiLi_%i",j+1),TObject::kOverwrite,1E8);
+                                                                                                                                                          ^
+src/histograms.cxx:127:162: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    (TH1F*)(fIn->Get(Form("SiLi Cut Detector %i, Peak %f/Clover_%i",(int)dSiLiCuts[i][0]+1,dSiLiCuts[i][1],j)))->Write(Form("Clover_%i",j),TObject::kOverwrite,1E8);
+                                                                                                                                                                  ^
+src/histograms.cxx:131:162: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    (TH1F*)(fIn->Get(Form("SiLi Cut Detector %i, Peak %f/SiLi_%i",(int)dSiLiCuts[i][0]+1,dSiLiCuts[i][1],j+1)))->Write(Form("SiLi_%i",j+1),TObject::kOverwrite,1E8);
+                                                                                                                                                                  ^
+g++ -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root -c src/Filelist.cxx -o Filelist.o
+g++ -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root -c src/analysis.cxx -o analysis.o
+g++ -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root -c src/main.cxx -o main.o
+g++ -L/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/lib/root -lCore -lCint -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -pthread -lm -ldl -rdynamic  -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root Constraints.o histograms.o Filelist.o analysis.o main.o -o main
+/scratch365/sstrauss/Cut_318_Timing.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0018.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0019.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0020.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0021.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0022.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0023.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0024.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0025.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0026.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0027.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0028.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0029.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0030.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0031.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0032.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0033.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0034.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0035.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0036.root
+SysError in <TFile::WriteBuffer>: error writing to file /scratch365/sstrauss/Cut_318_Timing.root (-1) (Input/output error)
+SysError in <TFile::ReadBuffer>: error reading from file /scratch365/sstrauss/Cut_318_Timing.root (Input/output error)
+Error in <TKey::ReadFile>: Failed to read data.
+
+ *** Break *** segmentation violation
+
+
+
+===========================================================
+There was a crash.
+This is the entire stack trace of all threads:
+===========================================================
+#0  0x00002b673664027c in waitpid () from /lib64/libc.so.6
+#1  0x00002b67365c3c72 in do_system () from /lib64/libc.so.6
+#2  0x00002b673176e398 in TUnixSystem::StackTrace() () from /afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/lib/root/libCore.so
+#3  0x00002b673176d823 in TUnixSystem::DispatchSignals(ESignals) () from /afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/lib/root/libCore.so
+#4  <signal handler called>
+#5  writeHistToFile (fileName=<optimized out>, nRunStart=<optimized out>, nRunStop=77) at src/histograms.cxx:169
+#6  0x000000000040246b in main (argc=<optimized out>, argv=<optimized out>) at src/main.cxx:60
+===========================================================
+
+
+The lines below might hint at the cause of the crash.
+If they do not help you then please submit a bug report at
+http://root.cern.ch/bugs. Please post the ENTIRE stack trace
+from above as an attachment in addition to anything else
+that might help us fixing this issue.
+===========================================================
+#5  writeHistToFile (fileName=<optimized out>, nRunStart=<optimized out>, nRunStop=77) at src/histograms.cxx:169
+#6  0x000000000040246b in main (argc=<optimized out>, argv=<optimized out>) at src/main.cxx:60
+===========================================================
+
+

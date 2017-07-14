@@ -1,0 +1,20 @@
+rm -rf main Constraints.o histograms.o Filelist.o analysis.o main.o
+g++ -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root -c src/Constraints.cxx -o Constraints.o
+g++ -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root -c src/histograms.cxx -o histograms.o
+g++ -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root -c src/Filelist.cxx -o Filelist.o
+g++ -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root -c src/analysis.cxx -o analysis.o
+g++ -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root -c src/main.cxx -o main.o
+g++ -L/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/lib/root -lCore -lCint -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -pthread -lm -ldl -rdynamic  -Iinclude -Iuser -O2 -fPIC -g -pthread -m64 -I/afs/crc.nd.edu/user/n/nsl/nuclear/x86_64_linux_el6/install/root_v5.34.19/include/root Constraints.o histograms.o Filelist.o analysis.o main.o -o main
+/scratch365/sstrauss/Cut_318_Timing.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0018.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0019.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0020.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0021.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0022.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0023.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0024.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0025.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0026.root
+/scratch365/sstrauss/temp/Cut_318_Timing_run_0027.root
+Finishing it up
+File closed
