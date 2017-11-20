@@ -10,5 +10,6 @@
 #include <vector>
 
 int defineConstraints(char* cCuts, std::vector<std::vector<double> > &dBounds);
+int defineTripleConstraints(char* cCuts, std::vector<std::vector<double> > &dBounds);
 
 #endif

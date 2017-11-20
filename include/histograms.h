@@ -15,6 +15,6 @@
 #include <TString.h>
 #include <TFile.h>
 
-void writeHistToFile(char* fileName, char* sOut, int nRunStart, int nRunStop);
+void writeHistToFile(char* fileName, char* sOut, int nRunStart, int nRunStop, bool bTripleCoin);
 
 #endif
